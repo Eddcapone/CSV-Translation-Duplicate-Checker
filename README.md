@@ -80,12 +80,6 @@ Duplicates in CSV:
 - Strings are compared without case sensitivity or surrounding quotes (e.g., `"Password Strength"` and `password strength` are treated as equal).
 - The application dynamically updates the progress bar and results list to ensure responsiveness.
 
-## Changelog
-
-### Version 1.1.0
-#### Added
-- Checkbox to toggle "Duplicates" display in results.
-
 #### Fixed
 - Ensured accurate comparison of input strings against both columns.
 
