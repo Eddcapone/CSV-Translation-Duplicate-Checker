@@ -16,7 +16,7 @@ This application was developed to assist in the translation process by allowing 
 
 1. **Clone the Repository**:
    ```
-   git clone https://github.com/Eddcapone/csv_translation_duplicate_checker.git
+   git clone https://github.com/Eddcapone/CSV-Translation-Duplicate-Checker
    cd csv-translation-checker
    ```
 
