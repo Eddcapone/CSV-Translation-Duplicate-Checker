@@ -62,10 +62,6 @@ Prix
 ```
 
 ### Example Output (Displayed in GUI):
-
-![example_output_01](https://github.com/user-attachments/assets/ee1fdebc-e758-4d03-9138-84aec7944494)
-
-
 ```
 Found Words:
   password strength
@@ -83,6 +79,15 @@ Duplicates in CSV:
 
 - Strings are compared without case sensitivity or surrounding quotes (e.g., `"Password Strength"` and `password strength` are treated as equal).
 - The application dynamically updates the progress bar and results list to ensure responsiveness.
+
+## Changelog
+
+### Version 1.1.0
+#### Added
+- Checkbox to toggle "Duplicates" display in results.
+
+#### Fixed
+- Ensured accurate comparison of input strings against both columns.
 
 ## Contributing
 
