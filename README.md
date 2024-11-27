@@ -62,6 +62,10 @@ Prix
 ```
 
 ### Example Output (Displayed in GUI):
+
+![example_output_01](https://github.com/user-attachments/assets/ee1fdebc-e758-4d03-9138-84aec7944494)
+
+
 ```
 Found Words:
   password strength
