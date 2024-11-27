@@ -25,11 +25,11 @@ This application was developed to assist in the translation process by allowing 
 3. **Run the Application**:
    - On Windows:
      ```
-     python csv_translation_checker.py
+     python main.py
      ```
    - On macOS/Linux:
      ```
-     python3 csv_translation_checker.py
+     python3 main.py
      ```
 
 4. **Use the Application**:
