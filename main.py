@@ -43,7 +43,7 @@ def check_words():
             progress_bar["value"] = 0
 
             csv_content = set()
-            all_csv_values = []  # Collect all values from both columns for duplicate detection
+            all_csv_values = []  # Collect values for duplicate detection
             for idx, row in enumerate(reader):
                 # Normalize and add the first column and the second column to csv_content
                 if len(row) > 0:
@@ -69,18 +69,18 @@ def check_words():
             result_listbox.insert(tk.END, "Found Words:")
             for word in found_words:
                 result_listbox.insert(tk.END, f"  {word}")
-            
-            # Conditionally display "Not Found Words" if the checkbox is selected
+
+            # Conditionally display "Not Found Words" if the checkbox is set
             if show_not_found_var.get():
                 result_listbox.insert(tk.END, "\nNot Found Words:")
                 for word in not_found_words:
                     result_listbox.insert(tk.END, f"  {word}")
-            
-            result_listbox.insert(tk.END, "\nDuplicates:")
-            for duplicate in duplicates:
-                result_listbox.insert(tk.END, f"  {duplicate}")
 
-            messagebox.showinfo("Completed", "Word checking completed!")
+            # Conditionally display "Duplicates" if the checkbox is set
+            if show_duplicates_var.get():
+                result_listbox.insert(tk.END, "\nDuplicates:")
+                for duplicate in duplicates:
+                    result_listbox.insert(tk.END, f"  {duplicate}")
 
     except Exception as e:
         messagebox.showerror("Error", f"Failed to process the CSV file: {e}")
@@ -89,11 +89,12 @@ def check_words():
 # Create main window
 root = tk.Tk()
 root.title("CSV Translation Duplicate Checker")
-root.geometry("800x550")
+root.geometry("800x600")
 
 # Variables
 csv_file_path = tk.StringVar()
-show_not_found_var = tk.BooleanVar(value=False)  # Checkbox state variable
+show_not_found_var = tk.BooleanVar(value=False)  # Checkbox state for "Not Found Words"
+show_duplicates_var = tk.BooleanVar(value=False)  # Checkbox state for "Duplicates"
 
 # GUI Elements
 tk.Label(root, text="Upload CSV File:").grid(row=0, column=0, padx=10, pady=5, sticky="w")
@@ -104,20 +105,23 @@ tk.Label(root, text="Enter Words to Check (one per line):").grid(row=2, column=0
 textarea = tk.Text(root, height=10, width=40)
 textarea.grid(row=3, column=0, padx=10, pady=5, sticky="w")
 
-# Checkbox to show "Not Found Words"
-tk.Checkbutton(root, text="List not found words", variable=show_not_found_var).grid(row=4, column=0, padx=10, pady=5, sticky="w")
+# Checkbox for "Not Found Words"
+tk.Checkbutton(root, text="List Not Found Words", variable=show_not_found_var).grid(row=4, column=0, padx=10, pady=5, sticky="w")
 
-tk.Button(root, text="Check Words", command=check_words).grid(row=5, column=0, padx=10, pady=10, sticky="w")
+# Checkbox for "Duplicates"
+tk.Checkbutton(root, text="Show Duplicates", variable=show_duplicates_var).grid(row=5, column=0, padx=10, pady=5, sticky="w")
+
+tk.Button(root, text="Check Words", command=check_words).grid(row=6, column=0, padx=10, pady=10, sticky="w")
 
 # Progress bar
-tk.Label(root, text="Processing Progress:").grid(row=6, column=0, padx=10, pady=5, sticky="w")
+tk.Label(root, text="Processing Progress:").grid(row=7, column=0, padx=10, pady=5, sticky="w")
 progress_bar = ttk.Progressbar(root, orient="horizontal", length=400, mode="determinate")
-progress_bar.grid(row=7, column=0, padx=10, pady=5, sticky="w")
+progress_bar.grid(row=8, column=0, padx=10, pady=5, sticky="w")
 
 # Results Listbox
 tk.Label(root, text="Results:").grid(row=2, column=1, padx=10, pady=5, sticky="w")
-result_listbox = tk.Listbox(root, width=50, height=20)
-result_listbox.grid(row=3, column=1, rowspan=5, padx=10, pady=5, sticky="w")
+result_listbox = tk.Listbox(root, width=50, height=25)
+result_listbox.grid(row=3, column=1, rowspan=6, padx=10, pady=5, sticky="w")
 
 # Run the application
 root.mainloop()
