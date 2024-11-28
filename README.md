@@ -61,7 +61,10 @@ Votre adresse
 Prix
 ```
 
-### Example Output (Displayed in GUI):
+### Example Output:
+
+![image](https://github.com/user-attachments/assets/70604afd-c9c4-477f-84a7-0ae180411a6b)
+
 ```
 Found Words:
   password strength
