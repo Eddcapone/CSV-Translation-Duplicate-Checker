@@ -2,6 +2,8 @@
 
 This application was developed to assist in the translation process by allowing users to check a list of new translated strings against an existing CSV file of translations. It helps ensure that strings are not duplicated in the CSV before being added.
 
+**Note**: There is also a webapp Version for this application [here](https://github.com/Eddcapone/CSV-Translation-Duplicate-Checker-Webapp).
+
 ## Features
 
 - Compare a list of strings (e.g., new translations) with the entries in a CSV file.
